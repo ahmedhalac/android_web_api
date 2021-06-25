@@ -2,4 +2,9 @@
     <string name="app_name">AndroidWebAPI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_text">
+        Dobrodošli na aplikaciju koja vrši prezentacijui podataka dobivenih kroz
+        Web API.
+    </string>
+    <string name="about">About</string>
 </resources>
