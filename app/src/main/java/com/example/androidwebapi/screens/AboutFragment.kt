@@ -1,10 +1,11 @@
-package com.example.androidwebapi
+package com.example.androidwebapi.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.androidwebapi.R
 
 class AboutFragment : Fragment() {
     override fun onCreateView(

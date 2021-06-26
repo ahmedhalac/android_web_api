@@ -1,4 +1,4 @@
-package com.example.androidwebapi.intro
+package com.example.androidwebapi.screens.intro
 
 import android.os.Bundle
 import android.view.*
