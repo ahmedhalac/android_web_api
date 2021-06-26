@@ -6,7 +6,7 @@
     app:startDestination="@id/introFragment">
     <fragment
         android:id="@+id/introFragment"
-        android:name="com.example.androidwebapi.intro.IntroFragment"
+        android:name="com.example.androidwebapi.screens.intro.IntroFragment"
         android:label="fragment_intro"
         tools:layout="@layout/fragment_intro" >
         <action
@@ -15,12 +15,21 @@
     </fragment>
     <fragment
         android:id="@+id/dataGroupFragment"
-        android:name="com.example.androidwebapi.datagroup.DataGroupFragment"
+        android:name="com.example.androidwebapi.screens.datagroup.DataGroupFragment"
         android:label="fragment_data_group"
-        tools:layout="@layout/fragment_data_group" />
+        tools:layout="@layout/fragment_data_group" >
+        <action
+            android:id="@+id/action_dataGroupFragment_to_popularMoviesFragment"
+            app:destination="@id/popularMoviesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.androidwebapi.AboutFragment"
+        android:name="com.example.androidwebapi.screens.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.example.androidwebapi.screens.popular_movies.PopularMoviesFragment"
+        android:label="PopularMoviesFragment"
+        tools:layout="@layout/fragment_popular_movies"/>
 </navigation>
