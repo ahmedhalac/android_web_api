@@ -11,12 +11,13 @@ android {
 
     android.defaultConfig.vectorDrawables.useSupportLibrary = true
     defaultConfig {
-        applicationId "com.example.prijavazavakcinaciju"
+        //applicationId "com.example.prijavazavakcinaciju"
+        applicationId "com.example.androidwebapi"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,6 +39,15 @@ android {
         viewBinding true
         dataBinding true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -56,4 +66,9 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     implementation "com.google.android.material:material:$version"
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
+
+    implementation 'com.android.support:multidex:1.0.3'
 }
