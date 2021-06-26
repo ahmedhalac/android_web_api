@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="184dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="Android Web API"
+            android:text="Movies"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
