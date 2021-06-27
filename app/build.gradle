@@ -67,8 +67,10 @@ dependencies {
     implementation "com.google.android.material:material:$version"
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
-    implementation "com.squareup.retrofit2:converter-scalars:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
 
     implementation 'com.android.support:multidex:1.0.3'
 }
