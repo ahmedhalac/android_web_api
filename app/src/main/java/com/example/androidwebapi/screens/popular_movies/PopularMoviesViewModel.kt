@@ -9,11 +9,13 @@ import com.example.androidwebapi.network.PopularMovies
 import com.example.androidwebapi.network.PopularMoviesApi
 import kotlinx.coroutines.launch
 
-class PopularMoviesViewModel : ViewModel() {
-    private val _response = MutableLiveData<String>()
+enum class MoviesApiStatus {LOADING, ERROR, DONE}
 
-    val response: LiveData<String>
-        get() = _response
+class PopularMoviesViewModel : ViewModel() {
+    private val _status = MutableLiveData<MoviesApiStatus>()
+
+    val status: LiveData<MoviesApiStatus>
+        get() = _status
 
     init {
         getPopularMovies()
@@ -26,12 +28,15 @@ class PopularMoviesViewModel : ViewModel() {
 
     private fun getPopularMovies() {
         viewModelScope.launch {
+            _status.value = MoviesApiStatus.LOADING
             try {
                 val listResult = PopularMoviesApi.retrofitService.getProperties()
                 _properties.value = listResult.results
-                _response.value = "Success: Mars properties retrieved"
+                _status.value = MoviesApiStatus.DONE
             }catch(e : Exception) {
-                _response.value = "Failure: ${e.message} "
+                _status.value = MoviesApiStatus.ERROR
+                //Clears Recycler View
+                _properties.value = ArrayList()
             }
         }
     }
