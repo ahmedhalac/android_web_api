@@ -8,6 +8,7 @@ data class PopularMovies (
 ) {
     @JsonClass(generateAdapter = true)
     data class Result(
+        val id: Int,
         val title: String,
         @Json(name = "poster_path")
         val posterPath: String,
