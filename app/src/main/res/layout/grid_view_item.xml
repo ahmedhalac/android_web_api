@@ -7,7 +7,7 @@
     <data>
         <variable
             name="property"
-            type="com.example.androidwebapi.network.PopularMovies.Result" />
+            type="com.example.androidwebapi.network.Movies.Result" />
     </data>
     <ImageView
         android:id="@+id/mars_image"

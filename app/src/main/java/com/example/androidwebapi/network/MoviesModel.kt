@@ -3,7 +3,7 @@ package com.example.androidwebapi.network
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-data class PopularMovies (
+data class Movies (
     val results : List<Result>
 ) {
     @JsonClass(generateAdapter = true)

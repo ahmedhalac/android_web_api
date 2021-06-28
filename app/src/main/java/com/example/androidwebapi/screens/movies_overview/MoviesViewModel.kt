@@ -1,32 +1,32 @@
-package com.example.androidwebapi.screens.popular_movies
+package com.example.androidwebapi.screens.movies_overview
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidwebapi.network.PopularMovies
+import com.example.androidwebapi.network.Movies
 import com.example.androidwebapi.network.PopularMoviesApi
 import kotlinx.coroutines.launch
 
+//enum class for error handling
 enum class MoviesApiStatus {LOADING, ERROR, DONE}
 
-class PopularMoviesViewModel : ViewModel() {
+class MoviesViewModel : ViewModel() {
     private val _status = MutableLiveData<MoviesApiStatus>()
 
     val status: LiveData<MoviesApiStatus>
         get() = _status
 
     init {
-        getPopularMovies()
+        getMovies()
     }
 
-    private val _properties = MutableLiveData<List<PopularMovies.Result>>()
+    private val _properties = MutableLiveData<List<Movies.Result>>()
 
-    val properties: LiveData<List<PopularMovies.Result>>
+    val properties: LiveData<List<Movies.Result>>
         get() = _properties
 
-    private fun getPopularMovies() {
+    private fun getMovies() {
         viewModelScope.launch {
             _status.value = MoviesApiStatus.LOADING
             try {

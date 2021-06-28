@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="popularMoviesVM"
-            type="com.example.androidwebapi.screens.popular_movies.PopularMoviesViewModel" />
+            name="moviesViewModel"
+            type="com.example.androidwebapi.screens.movies_overview.MoviesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +25,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:listData="@{popularMoviesVM.properties}"
+            app:listData="@{moviesViewModel.properties}"
             app:spanCount="2"
             tools:itemCount="16"
             tools:listitem="@layout/grid_view_item" />
@@ -38,7 +38,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:movieApiStatus="@{popularMoviesVM.status}" />
+            app:movieApiStatus="@{moviesViewModel.status}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

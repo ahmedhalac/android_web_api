@@ -1,4 +1,4 @@
-package com.example.androidwebapi.screens.popular_movies
+package com.example.androidwebapi.screens.movies_overview
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidwebapi.databinding.GridViewItemBinding
-import com.example.androidwebapi.network.PopularMovies
+import com.example.androidwebapi.network.Movies
 
 
-class PhotoGridAdapter : ListAdapter<PopularMovies.Result,
+class PhotoGridAdapter : ListAdapter<Movies.Result,
         PhotoGridAdapter.MoviesPropertyViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -24,17 +24,17 @@ class PhotoGridAdapter : ListAdapter<PopularMovies.Result,
         holder.bind(movieProperty)
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<PopularMovies.Result>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<Movies.Result>() {
         override fun areItemsTheSame(
-            oldItem: PopularMovies.Result,
-            newItem: PopularMovies.Result
+            oldItem: Movies.Result,
+            newItem: Movies.Result
         ): Boolean {
             return oldItem === newItem
         }
 
         override fun areContentsTheSame(
-            oldItem: PopularMovies.Result,
-            newItem: PopularMovies.Result
+            oldItem: Movies.Result,
+            newItem: Movies.Result
         ): Boolean {
             return oldItem.id == newItem.id
         }
@@ -42,7 +42,7 @@ class PhotoGridAdapter : ListAdapter<PopularMovies.Result,
 
     class MoviesPropertyViewHolder(private var binding: GridViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(movieProperty: PopularMovies.Result) {
+        fun bind(movieProperty: Movies.Result) {
             binding.property = movieProperty
             binding.executePendingBindings()
         }

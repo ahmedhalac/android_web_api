@@ -5,7 +5,13 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Headers
 
+enum class MoviesApiFilter(val value: String) {
+    SHOW_TOP_RATED("top_rated"),
+    SHOW_UPCOMING("upcoming")}
+
+private const val API_KEY = "?api_key=b2a4448503d46709ed8c8e90ec1bf7af"
 private const val BASE_URL = "https://api.themoviedb.org/3/movie/"
 
 private val moshi = Moshi.Builder()
@@ -17,12 +23,13 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface PopularMoviesApiService {
-    @GET("popular?api_key=b2a4448503d46709ed8c8e90ec1bf7af")
-    suspend fun getProperties(): PopularMovies
+
+interface MoviesApiService {
+    @GET("popular$API_KEY")
+    suspend fun getProperties(): Movies
 }
 
 object PopularMoviesApi {
-    val retrofitService : PopularMoviesApiService by lazy {
-        retrofit.create(PopularMoviesApiService::class.java) }
+    val retrofitService : MoviesApiService by lazy {
+        retrofit.create(MoviesApiService::class.java) }
 }
