@@ -1,6 +1,5 @@
 package com.example.androidwebapi
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.core.net.toUri
@@ -8,9 +7,9 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.androidwebapi.network.PopularMovies
-import com.example.androidwebapi.screens.popular_movies.MoviesApiStatus
-import com.example.androidwebapi.screens.popular_movies.PhotoGridAdapter
+import com.example.androidwebapi.network.Movies
+import com.example.androidwebapi.screens.movies_overview.MoviesApiStatus
+import com.example.androidwebapi.screens.movies_overview.PhotoGridAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -26,7 +25,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 }
 
 @BindingAdapter("listData")
-fun bindRecyclerView(recyclerView: RecyclerView, data: List<PopularMovies.Result>?) {
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<Movies.Result>?) {
     val adapter = recyclerView.adapter as PhotoGridAdapter
     adapter.submitList(data)
 }

@@ -1,26 +1,24 @@
-package com.example.androidwebapi.screens.popular_movies
+package com.example.androidwebapi.screens.movies_overview
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.androidwebapi.databinding.FragmentPopularMoviesBinding
-import com.example.androidwebapi.databinding.GridViewItemBinding
+import com.example.androidwebapi.databinding.FragmentMoviesBinding
 
-class PopularMoviesFragment : Fragment() {
+class MoviesFragment : Fragment() {
 
-    private val viewModel: PopularMoviesViewModel by lazy {
-        ViewModelProvider(this).get(PopularMoviesViewModel::class.java)
+    private val viewModel: MoviesViewModel by lazy {
+        ViewModelProvider(this).get(MoviesViewModel::class.java)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding = FragmentPopularMoviesBinding.inflate(inflater)
+        val binding = FragmentMoviesBinding.inflate(inflater)
 
         //val binding = GridViewItemBinding.inflate(inflater)
 
@@ -28,7 +26,7 @@ class PopularMoviesFragment : Fragment() {
         binding.lifecycleOwner = this
 
         // Giving the binding access to the OverviewViewModel
-        binding.popularMoviesVM = viewModel
+        binding.moviesViewModel = viewModel
 
         setHasOptionsMenu(true)
 
@@ -36,5 +34,15 @@ class PopularMoviesFragment : Fragment() {
         return binding.root
 
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        viewModel.updateFilter(
+//            when (item.itemId) {
+//                R.id.show_top_rated -> MoviesApiFilter.SHOW_TOP_RATED
+//                else -> MoviesApiFilter.SHOW_UPCOMING
+//            }
+//        )
+//        return true
+//    }
 
 }
