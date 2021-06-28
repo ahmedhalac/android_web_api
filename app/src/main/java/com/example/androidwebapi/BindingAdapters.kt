@@ -4,8 +4,11 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.androidwebapi.network.PopularMovies
+import com.example.androidwebapi.screens.popular_movies.PhotoGridAdapter
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -18,4 +21,10 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
                 .error(R.drawable.ic_broken_image))
             .into(imgView)
     }
+}
+
+@BindingAdapter("listData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<PopularMovies.Result>?) {
+    val adapter = recyclerView.adapter as PhotoGridAdapter
+    adapter.submitList(data)
 }
