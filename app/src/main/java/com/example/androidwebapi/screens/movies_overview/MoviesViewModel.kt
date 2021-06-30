@@ -17,14 +17,18 @@ class MoviesViewModel : ViewModel() {
     val status: LiveData<MoviesApiStatus>
         get() = _status
 
-    init {
-        getMovies()
-    }
-
     private val _properties = MutableLiveData<List<Movies.Result>>()
 
     val properties: LiveData<List<Movies.Result>>
         get() = _properties
+
+    private val _navigateToSelectedMovie = MutableLiveData<Movies.Result>()
+    val navigateToSelectedMovie: LiveData<Movies.Result>
+        get() = _navigateToSelectedMovie
+
+    init {
+        getMovies()
+    }
 
     private fun getMovies() {
         viewModelScope.launch {
@@ -40,4 +44,13 @@ class MoviesViewModel : ViewModel() {
             }
         }
     }
+
+    fun displayMovieDetails(movie: Movies.Result) {
+        _navigateToSelectedMovie.value = movie
+    }
+
+    fun displayMovieDetailsComplete() {
+        _navigateToSelectedMovie.value = null
+    }
+
 }

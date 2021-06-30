@@ -1,11 +1,12 @@
 package com.example.androidwebapi.screens.movies_overview
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.androidwebapi.R
 import com.example.androidwebapi.databinding.FragmentMoviesBinding
 
 class MoviesFragment : Fragment() {
@@ -28,20 +29,35 @@ class MoviesFragment : Fragment() {
         // Giving the binding access to the OverviewViewModel
         binding.moviesViewModel = viewModel
 
+        binding.photosGrid.adapter = PhotoGridAdapter(PhotoGridAdapter.OnClickListener {
+            viewModel.displayMovieDetails(it)
+        })
+
+        viewModel.navigateToSelectedMovie.observe(viewLifecycleOwner, Observer {
+            if ( null != it ) {
+                this.findNavController().navigate(
+                    MoviesFragmentDirections.actionShowDetails(it))
+                viewModel.displayMovieDetailsComplete()
+            }
+        })
+
         setHasOptionsMenu(true)
 
-        binding.photosGrid.adapter = PhotoGridAdapter()
         return binding.root
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.overflow_menu, menu)
+    }
+
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        viewModel.updateFilter(
-//            when (item.itemId) {
-//                R.id.show_top_rated -> MoviesApiFilter.SHOW_TOP_RATED
-//                else -> MoviesApiFilter.SHOW_UPCOMING
-//            }
-//        )
+//        when (item.itemId) {
+//            R.id.show_upcoming -> MoviesApiFilter
+//            R.id.show_top_rated -> MoviesApiFilter
+//            else -> MoviesApiFilter
+//        }
 //        return true
 //    }
 
