@@ -9,7 +9,7 @@ import com.example.androidwebapi.databinding.GridViewItemBinding
 import com.example.androidwebapi.network.Movies
 
 
-class PhotoGridAdapter : ListAdapter<Movies.Result,
+class PhotoGridAdapter( private val onClickListener: OnClickListener ): ListAdapter<Movies.Result,
         PhotoGridAdapter.MoviesPropertyViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -20,8 +20,11 @@ class PhotoGridAdapter : ListAdapter<Movies.Result,
     }
 
     override fun onBindViewHolder(holder: PhotoGridAdapter.MoviesPropertyViewHolder, position: Int) {
-        val movieProperty = getItem(position)
-        holder.bind(movieProperty)
+        val movie = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(movie)
+        }
+        holder.bind(movie)
     }
 
     companion object DiffCallback : DiffUtil.ItemCallback<Movies.Result>() {
@@ -48,5 +51,8 @@ class PhotoGridAdapter : ListAdapter<Movies.Result,
         }
     }
 
+    class OnClickListener(val clickListener: (movie:Movies.Result) -> Unit) {
+        fun onClick(movie:Movies.Result) = clickListener(movie)
+    }
 
 }

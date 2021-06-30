@@ -27,7 +27,7 @@ class DataGroupFragment : Fragment() {
 
 
         binding.popularMoviesBtn.setOnClickListener{view: View ->
-            view.findNavController().navigate(R.id.action_dataGroupFragment_to_popularMoviesFragment)
+            view.findNavController().navigate(R.id.action_dataGroupFragment_to_moviesFragment)
         }
 
         return binding.root
