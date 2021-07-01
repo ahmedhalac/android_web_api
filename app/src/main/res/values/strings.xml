@@ -7,4 +7,8 @@
         Web API.
     </string>
     <string name="about">About</string>
+    <string name="share_movie_details_text">Movie Details: %1$s</string>
+    <string name="share">Share</string>
+    <string name="movies">Movies</string>
+    <string name="title"><![CDATA[<h3>Title: </h3>]]></string>
 </resources>
