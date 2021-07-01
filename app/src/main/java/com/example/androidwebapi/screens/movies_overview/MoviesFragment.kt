@@ -1,6 +1,7 @@
 package com.example.androidwebapi.screens.movies_overview
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.androidwebapi.R
 import com.example.androidwebapi.databinding.FragmentMoviesBinding
+import com.example.androidwebapi.network.MoviesApiService
 
 class MoviesFragment : Fragment() {
 
@@ -54,11 +56,12 @@ class MoviesFragment : Fragment() {
 
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        when (item.itemId) {
-//            R.id.show_upcoming -> MoviesApiFilter
-//            R.id.show_top_rated -> MoviesApiFilter
-//            else -> MoviesApiFilter
+//            R.id.show_upcoming -> MoviesApiFilter().routeName = "upcoming"
+//            R.id.show_top_rated -> MoviesApiFilter().routeName = "top_rated"
+//            else -> MoviesApiFilter().routeName = "popular"
 //        }
 //        return true
 //    }
+
 
 }

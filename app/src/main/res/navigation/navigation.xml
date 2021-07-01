@@ -44,6 +44,19 @@
         <argument
             android:name="selectedMovie"
             app:argType="com.example.androidwebapi.network.Movies$Result" />
+        <action
+            android:id="@+id/action_detailsFragment_to_infoFragment"
+            app:destination="@id/infoFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.androidwebapi.screens.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <argument
+            android:name="specificMovie"
+            app:argType="com.example.androidwebapi.network.Movies$Result" />
     </fragment>
 
 </navigation>

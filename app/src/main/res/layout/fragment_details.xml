@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--
-  ~ Copyright 2019, The Android Open Source Project
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  ~
-  -->
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
+            type="com.example.androidwebapi.screens.details.DetailsViewModel" />
+
+        <variable
+            name="moviesViewModel"
             type="com.example.androidwebapi.screens.details.DetailsViewModel" />
     </data>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailFragment">
+        tools:context=".DetailsFragment">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:layout_height="match_parent"
+            android:padding="8dp">
 
             <ImageView
                 android:id="@+id/main_photo_image"
                 android:layout_width="0dp"
-                android:layout_height="266dp"
+                android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 app:imageUrl="@{viewModel.selectedMovie.posterPath}"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,29 +37,98 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
-   <!--         <TextView
-                android:id="@+id/property_type_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColor="#de000000"
-                android:textSize="39sp"
-                android:text="@{viewModel.displayPropertyType}"
+
+            <ImageView
+                android:id="@+id/avatar_photo_image"
+                android:layout_width="150dp"
+                android:layout_height="230dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="92dp"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{viewModel.selectedMovie.posterPath}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.033"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/property_type_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="28dp"
+                android:text="@{viewModel.selectedMovie.title}"
+                android:textColor="#de000000"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/avatar_photo_image"
                 tools:text="To Rent" />
 
             <TextView
-                android:id="@+id/price_value_text"
-                android:layout_width="wrap_content"
+                android:id="@+id/synopsis_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:text="@{viewModel.selectedMovie.overview}"
                 android:textColor="#de000000"
-                android:textSize="20sp"
-                android:text="@{viewModel.displayPropertyPrice}"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/property_type_text"
-                tools:text="$100,000" />-->
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/Rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="52dp"
+                android:text="Rating"
+                android:textColor="#de000000"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/avatar_photo_image"
+                app:layout_constraintTop_toBottomOf="@+id/main_photo_image" />
+
+            <TextView
+                android:id="@+id/rating_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="52dp"
+                android:text="@{viewModel.selectedMovie.voteAverage}"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/Rating"
+                app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                tools:text="8.5" />
+
+            <Button
+                android:id="@+id/save_to_db"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:text="Save"
+                android:onClick="@{() -> moviesViewModel.onSaveMovie()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toEndOf="@+id/avatar_photo_image"
+                app:layout_constraintTop_toBottomOf="@+id/Rating" />
+
+            <Button
+                android:id="@+id/more_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="More details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/synopsis_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
