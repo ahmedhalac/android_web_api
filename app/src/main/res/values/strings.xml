@@ -10,5 +10,8 @@
     <string name="share_movie_details_text">Movie Details: %1$s</string>
     <string name="share">Share</string>
     <string name="movies">Movies</string>
-    <string name="title"><![CDATA[<h3>Title: </h3>]]></string>
+    <string name="page_title"><![CDATA[<h3>SAVED MOVIES</h3>]]></string>
+    <string name="title"><![CDATA[<b>Title: </b>]]></string>
+    <string name="vote"><![CDATA[<b>Vote average: </b>]]></string>
+
 </resources>

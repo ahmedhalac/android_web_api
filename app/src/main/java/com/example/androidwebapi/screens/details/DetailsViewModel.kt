@@ -37,6 +37,8 @@ class DetailsViewModel(val database: MovieDatabaseDao,
     fun onSaveMovie() {
         viewModelScope.launch {
             val newMovie = MoviesEntity()
+            newMovie.title = _selectedMovie.value?.title
+            newMovie.vote = _selectedMovie.value?.voteAverage
             insert(newMovie)
         }
     }

@@ -11,9 +11,13 @@ import com.example.androidwebapi.database.MoviesEntity
 fun formatMovies(movies: List<MoviesEntity>, resources: Resources) : Spanned {
     val sb = StringBuilder()
     sb.apply {
+        append(resources.getString(R.string.page_title))
         movies.forEach {
             append("<br>")
             append(resources.getString(R.string.title))
+            append("\t${it.title}<br>")
+            append(resources.getString(R.string.vote))
+            append("\t${it.vote}<br>")
 
         }
     }
