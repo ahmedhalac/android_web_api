@@ -9,7 +9,7 @@ data class MoviesEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
     @ColumnInfo(name = "title")
-    val title: String? = "default_title",
+    var title: String? = "",
     @ColumnInfo(name = "vote")
-    val vote: String? = ""
+    var vote: String? = ""
 )
