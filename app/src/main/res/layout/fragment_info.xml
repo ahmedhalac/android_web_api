@@ -74,6 +74,7 @@
             android:layout_marginBottom="@dimen/margin"
             android:text="Clear"
             android:onClick="@{() -> infoViewModel.onClear()}"
+            android:background="@drawable/shape"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

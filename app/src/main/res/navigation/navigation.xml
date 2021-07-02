@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/introFragment"
         android:name="com.example.androidwebapi.screens.intro.IntroFragment"
-        android:label="fragment_intro"
+        android:label="Welcome page"
         tools:layout="@layout/fragment_intro">
         <action
             android:id="@+id/action_introFragment_to_dataGroupFragment"
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/dataGroupFragment"
         android:name="com.example.androidwebapi.screens.datagroup.DataGroupFragment"
-        android:label="fragment_data_group"
+        android:label="Data Group"
         tools:layout="@layout/fragment_data_group">
         <action
             android:id="@+id/action_dataGroupFragment_to_moviesFragment"
@@ -28,12 +28,12 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.androidwebapi.screens.AboutFragment"
-        android:label="AboutFragment"
+        android:label="About App"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/moviesFragment"
         android:name="com.example.androidwebapi.screens.movies_overview.MoviesFragment"
-        android:label="MoviesFragment"
+        android:label="Movies"
         tools:layout="@layout/fragment_movies">
         <action
             android:id="@+id/action_showDetails"
@@ -42,7 +42,7 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.androidwebapi.screens.details.DetailsFragment"
-        android:label="DetailsFragment"
+        android:label="Movie Details"
         tools:layout="@layout/fragment_details">
         <argument
             android:name="selectedMovie"
@@ -55,7 +55,7 @@
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.androidwebapi.screens.info.InfoFragment"
-        android:label="fragment_info"
+        android:label="Movie Info"
         tools:layout="@layout/fragment_info" >
         <argument
             android:name="specificMovie"
@@ -64,7 +64,7 @@
     <fragment
         android:id="@+id/tvShowsFragment"
         android:name="com.example.androidwebapi.screens.tv_shows.TvShowsFragment"
-        android:label="fragment_tv_shows"
+        android:label="TV Shows"
         tools:layout="@layout/fragment_tv_shows" >
         <action
             android:id="@+id/action_showTVDetails"
@@ -73,7 +73,7 @@
     <fragment
         android:id="@+id/detailsTvFragment"
         android:name="com.example.androidwebapi.screens.details.DetailsTvFragment"
-        android:label="DetailsTvFragment"
+        android:label="TV Shows Details"
         tools:layout="@layout/fragment_details_tv">
         <argument
             android:name="selectedTvShow"
