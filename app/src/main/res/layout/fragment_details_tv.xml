@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.androidwebapi.screens.details.DetailsViewModel" />
+            type="com.example.androidwebapi.screens.details.DetailsTvViewModel" />
 
     </data>
 
@@ -28,7 +28,7 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{viewModel.selectedMovie.posterPath}"
+                app:imageUrl="@{viewModel.selectedTvShow.posterPath}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +42,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="92dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{viewModel.selectedMovie.posterPath}"
+                app:imageUrl="@{viewModel.selectedTvShow.posterPath}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.033"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="28dp"
-                android:text="@{viewModel.selectedMovie.title}"
+                android:text="@{viewModel.selectedTvShow.name}"
                 android:textColor="#de000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="32dp"
-                android:text="@{viewModel.selectedMovie.overview}"
+                android:text="@{viewModel.selectedTvShow.overview}"
                 android:textColor="#de000000"
                 android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -98,34 +98,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="52dp"
-                android:text="@{viewModel.selectedMovie.voteAverage}"
+                android:text="@{viewModel.selectedTvShow.voteAverage}"
                 android:textSize="25sp"
                 app:layout_constraintStart_toEndOf="@+id/Rating"
                 app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
                 tools:text="8.5" />
-
-            <Button
-                android:id="@+id/save_to_db"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:text="Save"
-                android:onClick="@{() -> viewModel.onSaveMovie()}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.532"
-                app:layout_constraintStart_toEndOf="@+id/avatar_photo_image"
-                app:layout_constraintTop_toBottomOf="@+id/Rating" />
-
-            <Button
-                android:id="@+id/more_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="More details"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/synopsis_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

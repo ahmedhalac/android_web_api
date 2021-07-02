@@ -14,12 +14,12 @@ class PhotoGridAdapter( private val onClickListener: OnClickListener ): ListAdap
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): PhotoGridAdapter.MoviesPropertyViewHolder {
+    ): MoviesPropertyViewHolder {
         return MoviesPropertyViewHolder(GridViewItemBinding.inflate(
             LayoutInflater.from(parent.context)))
     }
 
-    override fun onBindViewHolder(holder: PhotoGridAdapter.MoviesPropertyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MoviesPropertyViewHolder, position: Int) {
         val movie = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(movie)
@@ -54,5 +54,6 @@ class PhotoGridAdapter( private val onClickListener: OnClickListener ): ListAdap
     class OnClickListener(val clickListener: (movie:Movies.Result) -> Unit) {
         fun onClick(movie:Movies.Result) = clickListener(movie)
     }
+
 
 }
