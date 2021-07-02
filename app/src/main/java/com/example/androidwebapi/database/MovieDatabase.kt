@@ -20,7 +20,7 @@ abstract class MovieDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         MovieDatabase::class.java,
-                        "sleep_history_database").fallbackToDestructiveMigration().build()
+                        "android_api_database").fallbackToDestructiveMigration().build()
                     INSTANCE = instance
                 }
                 return instance

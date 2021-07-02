@@ -11,11 +11,11 @@
     </data>
     <ImageView
         android:id="@+id/tv_shows_image"
-        android:layout_width="match_parent"
+        android:layout_width= "match_parent"
         android:layout_height="170dp"
-        android:scaleType="centerCrop"
+        android:scaleType="center"
         app:imageUrl="@{property.posterPath}"
         android:adjustViewBounds="true"
-        android:padding="2dp"
+        android:padding="1dp"
         tools:src="@tools:sample/backgrounds/scenic"/>
 </layout>

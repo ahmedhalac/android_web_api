@@ -15,18 +15,19 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailsFragment">
+        tools:context=".DetailsFragment"
+        android:background="@color/black_olive">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="8dp">
+            android:padding="2dp">
 
             <ImageView
                 android:id="@+id/main_photo_image"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="180dp"
                 android:scaleType="centerCrop"
                 app:imageUrl="@{viewModel.selectedMovie.posterPath}"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +39,13 @@
             <ImageView
                 android:id="@+id/avatar_photo_image"
                 android:layout_width="150dp"
-                android:layout_height="230dp"
+                android:layout_height="210dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="92dp"
+                android:layout_marginTop="112dp"
                 android:scaleType="centerCrop"
                 app:imageUrl="@{viewModel.selectedMovie.posterPath}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.033"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
@@ -54,13 +55,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="serif"
                 android:text="@{viewModel.selectedMovie.title}"
-                android:textColor="#de000000"
-                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.067"
+                app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/avatar_photo_image"
                 tools:text="To Rent" />
@@ -71,8 +73,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="20dp"
                 android:text="@{viewModel.selectedMovie.overview}"
-                android:textColor="#de000000"
+                android:textColor="@color/white"
                 android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -81,47 +84,48 @@
                 tools:text="@tools:sample/lorem" />
 
             <TextView
-                android:id="@+id/Rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="52dp"
-                android:text="Rating"
-                android:textColor="#de000000"
-                android:textSize="25sp"
-                app:layout_constraintStart_toEndOf="@+id/avatar_photo_image"
-                app:layout_constraintTop_toBottomOf="@+id/main_photo_image" />
-
-            <TextView
                 android:id="@+id/rating_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
                 android:text="@{viewModel.selectedMovie.voteAverage}"
-                android:textSize="25sp"
-                app:layout_constraintStart_toEndOf="@+id/Rating"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
                 tools:text="8.5" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintStart_toEndOf="@+id/avatar_photo_image"
+                app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
+                app:srcCompat="@drawable/ic_star" />
 
             <Button
                 android:id="@+id/save_to_db"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:text="Save"
+                android:layout_marginTop="28dp"
                 android:onClick="@{() -> viewModel.onSaveMovie()}"
+                android:text="@string/save"
+                android:backgroundTint="@color/orange"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintHorizontal_bias="0.529"
                 app:layout_constraintStart_toEndOf="@+id/avatar_photo_image"
-                app:layout_constraintTop_toBottomOf="@+id/Rating" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <Button
                 android:id="@+id/more_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:text="More details"
+                android:text="@string/more_details"
+                android:backgroundTint="@color/orange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
