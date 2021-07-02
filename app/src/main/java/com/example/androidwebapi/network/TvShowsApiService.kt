@@ -6,10 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-
 private const val API_KEY = "?api_key=b2a4448503d46709ed8c8e90ec1bf7af"
-private const val BASE_URL = "https://api.themoviedb.org/3/movie/"
-
+private const val BASE_URL = "https://api.themoviedb.org/3/tv/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -20,15 +18,12 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-
-interface MoviesApiService {
+interface TvShowApiService {
     @GET("popular$API_KEY")
-    suspend fun getProperties(): Movies
+    suspend fun getTvShowProperty(): TvShows
 }
 
-
-object PopularMoviesApi {
-    val retrofitService : MoviesApiService by lazy {
-        retrofit.create(MoviesApiService::class.java) }
+object TvShowsApi {
+    val retrofitService : TvShowApiService by lazy {
+        retrofit.create(TvShowApiService::class.java) }
 }
-

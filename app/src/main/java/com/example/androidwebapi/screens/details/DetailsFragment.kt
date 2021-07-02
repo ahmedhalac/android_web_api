@@ -6,11 +6,10 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.example.androidwebapi.R
 import com.example.androidwebapi.database.MovieDatabase
 import com.example.androidwebapi.databinding.FragmentDetailsBinding
-import com.example.androidwebapi.network.Movies
+
 
 class DetailsFragment : Fragment() {
 
@@ -35,13 +34,8 @@ class DetailsFragment : Fragment() {
             view.findNavController().navigate(R.id.action_detailsFragment_to_infoFragment)
         }
 
-        val detailsViewModel =
-            ViewModelProvider(
-                this, viewModelFactory).get(DetailsViewModel::class.java)
-
         setHasOptionsMenu(true)
         binding.lifecycleOwner = this
-        binding.moviesViewModel = detailsViewModel
         return binding.root
     }
 

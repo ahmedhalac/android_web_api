@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_dataGroupFragment_to_moviesFragment"
             app:destination="@id/moviesFragment" />
+        <action
+            android:id="@+id/action_dataGroupFragment_to_tvShowsFragment"
+            app:destination="@id/tvShowsFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -57,6 +60,24 @@
         <argument
             android:name="specificMovie"
             app:argType="com.example.androidwebapi.network.Movies$Result" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvShowsFragment"
+        android:name="com.example.androidwebapi.screens.tv_shows.TvShowsFragment"
+        android:label="fragment_tv_shows"
+        tools:layout="@layout/fragment_tv_shows" >
+        <action
+            android:id="@+id/action_showTVDetails"
+            app:destination="@id/detailsTvFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsTvFragment"
+        android:name="com.example.androidwebapi.screens.details.DetailsTvFragment"
+        android:label="DetailsTvFragment"
+        tools:layout="@layout/fragment_details_tv">
+        <argument
+            android:name="selectedTvShow"
+            app:argType="com.example.androidwebapi.network.TvShows$Result" />
     </fragment>
 
 </navigation>

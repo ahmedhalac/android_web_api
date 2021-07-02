@@ -8,9 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.androidwebapi.network.Movies
+import com.example.androidwebapi.network.TvShows
 import com.example.androidwebapi.screens.movies_overview.MoviesApiStatus
 import com.example.androidwebapi.screens.movies_overview.PhotoGridAdapter
+import com.example.androidwebapi.screens.tv_shows.PhotoGridAdapterII
 
+
+// Binding adapter for movies
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
@@ -30,6 +34,12 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<Movies.Result>?) {
     adapter.submitList(data)
 }
 
+@BindingAdapter("_listData")
+fun bindRecyclerViewII(recyclerView: RecyclerView, data: List<TvShows.Result>?) {
+    val adapter = recyclerView.adapter as PhotoGridAdapterII
+    adapter.submitList(data)
+}
+
 @BindingAdapter("movieApiStatus")
 fun bindStatus(statusImageView: ImageView, status: MoviesApiStatus?) {
     when (status) {
@@ -46,3 +56,5 @@ fun bindStatus(statusImageView: ImageView, status: MoviesApiStatus?) {
         }
     }
 }
+
+

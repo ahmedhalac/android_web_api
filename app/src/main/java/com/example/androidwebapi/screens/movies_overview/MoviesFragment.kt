@@ -1,7 +1,6 @@
 package com.example.androidwebapi.screens.movies_overview
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -9,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.androidwebapi.R
 import com.example.androidwebapi.databinding.FragmentMoviesBinding
-import com.example.androidwebapi.network.MoviesApiService
 
 class MoviesFragment : Fragment() {
 

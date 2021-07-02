@@ -26,12 +26,17 @@ class DataGroupFragment : Fragment() {
         )
 
 
-        binding.popularMoviesBtn.setOnClickListener{view: View ->
+        binding.popularMoviesBtn.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_dataGroupFragment_to_moviesFragment)
         }
 
-        return binding.root
-    }
+        binding.tvShows.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_dataGroupFragment_to_tvShowsFragment)
 
+        }
+
+        return binding.root
+
+    }
 
 }
