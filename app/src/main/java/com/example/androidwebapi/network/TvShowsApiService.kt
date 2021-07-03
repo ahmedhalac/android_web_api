@@ -19,9 +19,11 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface TvShowApiService {
+    fun route()
     @GET("popular$API_KEY")
     suspend fun getTvShowProperty(): TvShows
 }
+
 
 object TvShowsApi {
     val retrofitService : TvShowApiService by lazy {

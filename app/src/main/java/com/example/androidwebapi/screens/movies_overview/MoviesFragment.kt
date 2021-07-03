@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.androidwebapi.R
 import com.example.androidwebapi.databinding.FragmentMoviesBinding
+import com.example.androidwebapi.network.MovieApiFilter
 
 class MoviesFragment : Fragment() {
 
@@ -20,8 +21,6 @@ class MoviesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentMoviesBinding.inflate(inflater)
-
-        //val binding = GridViewItemBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
@@ -41,25 +40,30 @@ class MoviesFragment : Fragment() {
             }
         })
 
+
+
         setHasOptionsMenu(true)
 
         return binding.root
 
     }
 
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.overflow_menu, menu)
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.show_upcoming -> MoviesApiFilter().routeName = "upcoming"
-//            R.id.show_top_rated -> MoviesApiFilter().routeName = "top_rated"
-//            else -> MoviesApiFilter().routeName = "popular"
-//        }
-//        return true
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        viewModel.updateFilter(
+            when (item.itemId) {
+                R.id.show_upcoming -> MovieApiFilter.SHOW_UPCOMING
+                R.id.show_top_rated -> MovieApiFilter.SHOW_TOP_RATED
+                else -> MovieApiFilter.SHOW_POPULAR
+            }
+        )
+        return true
+    }
 
 
 }
