@@ -3,8 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="about_text">
-        Dobrodošli na aplikaciju koja vrši prezentacijui podataka dobivenih kroz
-        Web API.
+        Dobrodošli na aplikaciju \n koja vrši prezentaciju \n podataka dobivenih kroz
+        \n Web API.
     </string>
     <string name="about">About</string>
     <string name="share_movie_details_text">Movie Details: %1$s</string>
