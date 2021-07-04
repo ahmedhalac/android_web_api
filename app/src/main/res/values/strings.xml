@@ -2,4 +2,19 @@
     <string name="app_name">AndroidWebAPI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_text">
+        Dobrodošli na aplikaciju \n koja vrši prezentaciju \n podataka dobivenih kroz
+        \n Web API.
+    </string>
+    <string name="about">About</string>
+    <string name="share_movie_details_text">Movie Details: %1$s</string>
+    <string name="share">Share</string>
+    <string name="movies">Movies</string>
+    <string name="page_title"><![CDATA[<h3>SAVED MOVIES</h3>]]></string>
+    <string name="title"><![CDATA[<b>Title: </b>]]></string>
+    <string name="vote"><![CDATA[<b>Vote average: </b>]]></string>
+    <string name="more_details">More details</string>
+    <string name="save">Save</string>
+    <string name="movies_sa">Movies saved</string>
+
 </resources>

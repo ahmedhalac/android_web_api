@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="property"
+            type="com.example.androidwebapi.network.TvShows.Result" />
+    </data>
+    <ImageView
+        android:id="@+id/tv_shows_image"
+        android:layout_width= "match_parent"
+        android:layout_height="170dp"
+        android:scaleType="center"
+        app:imageUrl="@{property.posterPath}"
+        android:adjustViewBounds="true"
+        android:padding="1dp"
+        tools:src="@tools:sample/backgrounds/scenic"/>
+</layout>
