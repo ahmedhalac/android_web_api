@@ -12,6 +12,7 @@ import com.example.androidwebapi.network.TvShows
 import com.example.androidwebapi.screens.movies_overview.MoviesApiStatus
 import com.example.androidwebapi.screens.movies_overview.PhotoGridAdapter
 import com.example.androidwebapi.screens.tv_shows.PhotoGridAdapterII
+import com.example.androidwebapi.screens.tv_shows.TvShowsApiStatus
 
 
 // Binding adapter for movies
@@ -52,6 +53,23 @@ fun bindStatus(statusImageView: ImageView, status: MoviesApiStatus?) {
             statusImageView.setImageResource(R.drawable.ic_connection_error)
         }
         MoviesApiStatus.DONE -> {
+            statusImageView.visibility = View.GONE
+        }
+    }
+}
+
+@BindingAdapter("tvShowApiStatus")
+fun bindStatusII(statusImageView: ImageView, status: TvShowsApiStatus?) {
+    when (status) {
+        TvShowsApiStatus.LOADING -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.loading_animation)
+        }
+        TvShowsApiStatus.ERROR -> {
+            statusImageView.visibility = View.VISIBLE
+            statusImageView.setImageResource(R.drawable.ic_connection_error)
+        }
+        TvShowsApiStatus.DONE -> {
             statusImageView.visibility = View.GONE
         }
     }

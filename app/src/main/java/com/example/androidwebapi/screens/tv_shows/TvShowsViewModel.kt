@@ -4,22 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidwebapi.network.PopularMoviesApi
 import com.example.androidwebapi.network.TvShows
 import com.example.androidwebapi.network.TvShowsApi
-import com.example.androidwebapi.screens.movies_overview.MoviesApiStatus
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
+
+enum class TvShowsApiStatus {LOADING, ERROR, DONE}
 
 class TvShowsViewModel: ViewModel() {
 
-    private val _response = MutableLiveData<String>()
+    private val _status = MutableLiveData<TvShowsApiStatus>()
 
-    // The external immutable LiveData for the response String
-    val response: LiveData<String>
-        get() = _response
+    val status: LiveData<TvShowsApiStatus>
+        get() = _status
 
     private val _properties = MutableLiveData<List<TvShows.Result>>()
 
@@ -36,11 +33,14 @@ class TvShowsViewModel: ViewModel() {
 
     private fun getTvShows() {
         viewModelScope.launch {
+            _status.value = TvShowsApiStatus.LOADING
             try {
                 val listResult = TvShowsApi.retrofitService.getTvShowProperty()
                 _properties.value = listResult.results
+                _status.value = TvShowsApiStatus.DONE
             }catch(e : Exception) {
-                _response.value = "Failure: ${e.message}"
+                _status.value = TvShowsApiStatus.ERROR
+                _properties.value = ArrayList()
             }
         }
     }
